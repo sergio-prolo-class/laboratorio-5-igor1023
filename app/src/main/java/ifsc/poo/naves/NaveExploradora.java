@@ -28,5 +28,39 @@ implements Tripulada, Blindada{
 
     }
 
-    // implementar metodos da classe abstratos
+    // implementar metodos da classe abstrata
+
+    public  int getVelocidadeAtual(){
+
+
+
+    }
+
+    public int getVelocidadeMaxima(){
+
+
+
+    }
+
+    public boolean EstaEmVoo(){
+
+
+
+    }
+
+    public String acelerar(int i){
+
+    }
+
+    public String frear(int i){
+
+    }
+
+    public String decolar(){
+
+    }
+
+    public String pousar(){
+        
+    }
 }

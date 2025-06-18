@@ -1,12 +1,16 @@
+// CLASSE ABSTRATA
+
 package ifsc.poo.naves;
 
 public abstract class NaveEspacial{
 
     // atributo da classe
     static private int id_naves;
+    static int VELOCIDADE_AO_DECOLAR;
 
     static{
         id_naves = 0;
+        VELOCIDADE_AO_DECOLAR = 20;
     }
 
     // atributo de uma nave
@@ -27,6 +31,12 @@ public abstract class NaveEspacial{
         return this.id;
 
     }
+
+    public abstract int getVelocidadeAtual();
+
+    public abstract int getVelocidadeMaxima();
+
+    public abstract boolean EstaEmVoo();
 
     public abstract String acelerar(int i);
 
