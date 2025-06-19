@@ -28,6 +28,13 @@ implements Blindada, Autonoma{
 
     }
 
+    public String toString() {
+        return getClass().getSimpleName() +
+           "   [ID: " + getId() +
+           ", velocidade atual (Mm/h): " + getVelocidadeAtual() +
+           ", velocidade máxima (Mm/h): " + getVelocidadeMaxima() + "]";
+    }
+
     public boolean getBlindagem(){
 
         return this.blindagem;

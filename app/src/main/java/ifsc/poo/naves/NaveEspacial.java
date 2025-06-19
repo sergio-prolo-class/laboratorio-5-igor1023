@@ -50,4 +50,7 @@ public abstract class NaveEspacial{
 
     public abstract String pousar();
 
+    @Override
+    public abstract String toString();
+
 }

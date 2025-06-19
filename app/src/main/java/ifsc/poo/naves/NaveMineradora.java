@@ -20,6 +20,13 @@ implements Tripulada{
 
     }
 
+    public String toString() {
+        return getClass().getSimpleName() +
+           "  [ID: " + getId() +
+           ", velocidade atual (Mm/h): " + getVelocidadeAtual() +
+           ", velocidade máxima (Mm/h): " + getVelocidadeMaxima() + "]";
+    }
+
     private boolean setQuantidadeTripulantes(int maxTripulantes){
 
         if(maxTripulantes <= MAX_TRIPULANTES){
