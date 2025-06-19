@@ -21,6 +21,7 @@ implements Blindada, Autonoma{
     public NaveCargueira(int cargaMaxima){
 
         super();
+        this.velocidadeMaxima = VELOCIDADE_MAX_SEM_BLINDAGEM;
         this.cargaMaxima = cargaMaxima;
         this.cargaAtual = 0;
         this.blindagem = false;
@@ -74,7 +75,7 @@ implements Blindada, Autonoma{
 
         this.velocidadeAtual += i;
 
-        return "Nave está com velocidade de " + this.velocidadeAtual + "milhas por hora";
+        return "Nave está com velocidade de " + this.velocidadeAtual + "Mm/h";
     }
 
     public String frear(int i){
@@ -82,21 +83,25 @@ implements Blindada, Autonoma{
         if(i > 0) acelerar(i);
 
         if(getVelocidadeAtual() - i <= 0)
-            return "Velocidade em zero";
-
+            return pousar();
+        
         this.velocidadeAtual -= i;
-
-        return "Nave está com velocidade de " + this.velocidadeAtual + "milhas por hora";
+        return "Nave está com velocidade de " + getVelocidadeAtual() + "Mm/h";
     }
 
     public String decolar(){
 
         this.velocidadeAtual = VELOCIDADE_AO_DECOLAR;
 
-        if(getCargaAtual() > PORCENTAGEM_CARGA_MAX * getCargaMaxima())
+        if(getCargaAtual() > PORCENTAGEM_CARGA_MAX * getCargaMaxima()){
+            
             ativarBlindagem();
+            this.velocidadeMaxima = VELOCIDADE_MAX_COM_BLINDAGEM;
+            if(getVelocidadeAtual() > getVelocidadeMaxima())
+                this.velocidadeAtual = getVelocidadeMaxima();
 
-        return "A nave decolou e está com velocidade de " + getVelocidadeAtual() + "milhas";
+        }
+        return "A nave decolou e está com velocidade de " + getVelocidadeAtual() + "Mm/h";
 
     }
 
@@ -127,6 +132,18 @@ implements Blindada, Autonoma{
 
         return "Blindagem desativada";
 
+    }
+
+
+    // Método da interface AUTONOMA
+
+    @Override
+    public String controleAutomatico(){
+
+        if(getVelocidadeAtual() == 0)
+            return "Piloto automático acionado";
+
+        return "Nave ainda está em rota";
     }
 
 }

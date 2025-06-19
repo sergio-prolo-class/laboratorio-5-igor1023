@@ -6,11 +6,15 @@ public abstract class NaveEspacial{
 
     // atributo da classe
     static private int id_naves;
+    static int VELOCIDADE_MAX_SEM_BLINDAGEM;
+    static int VELOCIDADE_MAX_COM_BLINDAGEM;
     static int VELOCIDADE_AO_DECOLAR;
 
     static{
         id_naves = 0;
-        VELOCIDADE_AO_DECOLAR = 20;
+        VELOCIDADE_MAX_SEM_BLINDAGEM = 20;
+        VELOCIDADE_MAX_COM_BLINDAGEM = 14;
+        VELOCIDADE_AO_DECOLAR = 5;
     }
 
     // atributo de uma nave
